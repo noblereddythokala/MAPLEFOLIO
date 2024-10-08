@@ -1,73 +1,197 @@
-* {
-    box-sizing: border-box;
+/* Reset default styles */
+body, h1, h2, h3, p, ul, table {
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
+    background-color: #f5f5f5; /* Light grey background */
+    color: #333;
 }
 
+/* Header styles */
 header {
+    background-color: #2e3b55; /* Dark blue background */
+    color: white;
     text-align: center;
-    background-color: #f8f8f8;
     padding: 20px 0;
-    border-bottom: 1px solid #ccc;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative; /* To position the logo and heading */
 }
 
 .logo {
-    margin-bottom: 20px;
- 
+    position: absolute; /* Positioning the logo */
+    left: 20px; /* Aligning to the left */
+    top: 20px; /* Aligning to the top */
 }
+
 .logo img {
-    height: 100px; 
-    width: auto;
+    width: 150px; /* Adjust the size of your logo */
+    height: auto;
 }
 
+h1 {
+    margin-top: 0;
+    font-size: 3rem; /* Increase font size */
+    color: #ff4500; /* Orange red color */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Larger shadow for more prominence */
+    font-family: 'Georgia', serif; /* Give it a more formal, serif font */
+    font-weight: bold; /* Make it bold */
+    letter-spacing: 2px; /* Space out the letters for emphasis */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition effect on hover */
+    text-align: center; /* Keep heading centered */
+}
 
+/* Hover effect for the heading */
+h1:hover {
+    color: #ffd700; /* Change color to gold on hover */
+    transform: scale(1.05); /* Slightly enlarge the heading on hover */
+}
+
+/* Navigation styles */
+nav {
+    margin-top: 60px; /* Space below the heading */
+}
 
 .menu {
-    list-style: none;
-    padding: 0;
-    background-color: rgb(31, 30, 24);
-}
-
-.menu li {
-    display: inline;
-    margin: 0 15px;
-    background-color: rgb(199, 197, 187);
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between menu items */
 }
 
 .menu a {
+    color: white;
     text-decoration: none;
-    color: #333;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s;
 }
 
 .menu a:hover {
-    text-decoration: underline;
+    background-color: #ffd700; /* Yellow background on hover */
+    color: #2e3b55; /* Dark blue text on hover */
 }
 
+/* Main content styles */
 main {
-    padding: 20px;
+    padding: 40px 20px;
     text-align: center;
+    background-color: white; /* White background for main content */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto; /* Center the main content */
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #f8f8f8;
-    border-top: 1px solid #ccc;
-    position: relative;
-    bottom: 0;
+h2 {
+    margin-bottom: 15px;
+    font-size: 2rem;
+    color: #2e3b55; /* Dark blue */
+    font-weight: bold;
+}
+
+section {
+    margin-bottom: 40px; /* Space between sections */
+}
+
+/* Search section styles */
+#search-section {
+    margin: 20px 0;
+}
+
+#search-section input {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#search-section button {
+    padding: 10px 15px;
+    background-color: #2e3b55; /* Dark blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#search-section button:hover {
+    background-color: #ffd700; /* Yellow on hover */
+}
+
+/* Stock price table styles */
+table {
     width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2; /* Light grey for headers */
+}
+
+/* Image styles */
+section img {
+    max-width: 100%; /* Responsive image */
+    height: auto;
+    border-radius: 5px; /* Rounded corners for images */
+    margin-top: 10px; /* Space above images */
+}
+
+#section3 img, #section4 img {
+    width: 150px; /* Reduced size for alert and favourite images */
+    height: auto;
+}
+
+/* Footer styles */
+footer {
+    background-color: #2e3b55; /* Dark blue background */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
 }
 
 footer a {
+    color: #ffd700; /* Yellow color for links */
     text-decoration: none;
-    color: #333;
 }
 
 footer a:hover {
     text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+    }
+
+    .menu a {
+        padding: 10px; /* Adjust padding for mobile */
+    }
+
+    .logo img {
+        width: 120px; /* Adjust logo size for mobile */
+    }
+
+    main h2 {
+        font-size: 1.8rem;
+    }
+
+    #search-section input {
+        width: 100%; /* Full width for mobile */
+        margin-bottom: 10px; /* Space below input */
+    }
 }
