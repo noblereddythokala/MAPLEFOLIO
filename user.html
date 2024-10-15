@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Set personalized stock alerts on Maplefolio.">
+    <title>Maplefolio - User Alerts</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/Maple Insights.webp" alt="Maplefolio Logo"> 
+        </div>
+        <h1>Maple Market Insights</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="stocks.html">Stock Price Display</a></li>
+                <li><a href="historical.html">Historical Prices</a></li>
+                <li><a href="user.html" class="active">User Alerts</a></li>
+                <li><a href="favourite.html">Favourite Stocks</a></li>
+                <li><a href="login.html" class="login-button">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="alerts-section">
+            <h2>Set Stock Price Alerts</h2>
+            <p>Get notifications when your favorite stocks hit target prices.</p>
+            <form>
+                <label for="stock-symbol">Stock Symbol:</label>
+                <input type="text" id="stock-symbol" name="stock-symbol" placeholder="e.g., TSLA">
+                <label for="target-price">Target Price:</label>
+                <input type="number" id="target-price" name="target-price" step="0.01" placeholder="e.g., 500.00">
+                <button type="submit">Set Alert</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Maplefolio. All rights reserved.</p>
+        <p>
+            <a href="https://github.com/noblereddythokala/MAPLEFOLIO" target="_blank">GitHub Repository</a>
+        </p>
+    </footer>
+</body>
+</html>

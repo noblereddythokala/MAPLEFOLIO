@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your favourite stocks on Maplefolio.">
+    <title>Maplefolio - Favourite Stocks</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/Maple Insights.webp" alt="Maplefolio Logo"> 
+        </div>
+        <h1>Maple Market Insights</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="stocks.html">Stock Price Display</a></li>
+                <li><a href="historical.html">Historical Prices</a></li>
+                <li><a href="user.html">User Alerts</a></li>
+                <li><a href="favourite.html" class="active">Favourite Stocks</a></li>
+                <li><a href="login.html" class="login-button">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="favourites-section">
+            <h2>Manage Your Favourite Stocks</h2>
+            <p>Easily access and track the stocks that matter to you.</p>
+            <form>
+                <label for="add-stock">Add Stock:</label>
+                <input type="text" id="add-stock" name="add-stock" placeholder="e.g., AMZN">
+                <button type="submit">Add to Favourites</button>
+            </form>
+            <h3>Your Favourites:</h3>
+            <ul>
+                <li>AAPL</li>
+                <li>TSLA</li>
+                <li>GOOGL</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Maplefolio. All rights reserved.</p>
+        <p>
+            <a href="https://github.com/noblereddythokala/MAPLEFOLIO" target="_blank">GitHub Repository</a>
+        </p>
+    </footer>
+</body>
+</html>
