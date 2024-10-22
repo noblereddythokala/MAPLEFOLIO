@@ -6,6 +6,7 @@
     <meta name="description" content="Set personalized stock alerts on Maplefolio.">
     <title>Maplefolio - User Alerts</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="user.css"> <!-- New CSS file -->
 </head>
 <body>
     <header>
@@ -28,10 +29,9 @@
     <main>
         <section id="alerts-section">
             <h2>Set Stock Price Alerts</h2>
-            <p>Get notifications when your favorite stocks hit target prices.</p>
-            <form>
-                <label for="stock-symbol">Stock Symbol:</label>
-                <input type="text" id="stock-symbol" name="stock-symbol" placeholder="e.g., TSLA">
+            <form id="alert-form">
+                <label for="alert-stock">Stock Symbol:</label>
+                <input type="text" id="alert-stock" name="stock-symbol" placeholder="e.g., TSLA">
                 <label for="target-price">Target Price:</label>
                 <input type="number" id="target-price" name="target-price" step="0.01" placeholder="e.g., 500.00">
                 <button type="submit">Set Alert</button>
@@ -45,5 +45,7 @@
             <a href="https://github.com/noblereddythokala/MAPLEFOLIO" target="_blank">GitHub Repository</a>
         </p>
     </footer>
+
+    <script src="user.js"></script> <!-- New JS file -->
 </body>
 </html>

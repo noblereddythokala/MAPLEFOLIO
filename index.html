@@ -6,6 +6,7 @@
     <meta name="description" content="Maplefolio is your personalized stock portfolio management tool providing real-time stock prices and market insights.">
     <title>Maplefolio - Your Stock Market Companion</title>
     <link rel="stylesheet" href="main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -26,65 +27,11 @@
     </header>
 
     <main>
-        <section>
-            <h2>Welcome to Maplefolio</h2>
-            <p>Your personalized stock portfolio management tool.</p>
-        </section>
-
-        <section id="search-section">
-            <h3>Search for Stocks</h3>
-            <input type="text" placeholder="Enter stock symbol..." aria-label="Search for stocks">
-            <button>Search</button>
-        </section>
-
-        <section id="section1">
-            <h3>Stock Price Display</h3>
-            <p>Get real-time stock prices and make informed decisions.</p>
-            <img src="images/stocks.png" alt="Stock Price Display">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Stock</th>
-                        <th>Price</th>
-                        <th>Change</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>AAPL</td>
-                        <td>$150.00</td>
-                        <td>+1.25%</td>
-                    </tr>
-                    <tr>
-                        <td>GOOGL</td>
-                        <td>$2,850.00</td>
-                        <td>-0.75%</td>
-                    </tr>
-                    <tr>
-                        <td>AMZN</td>
-                        <td>$3,500.00</td>
-                        <td>+0.50%</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section id="section2">
-            <h3>Historical Prices</h3>
-            <p>Access historical price data to analyze market trends.</p>
-            <img src="images/historical.png" alt="Historical Prices">
-        </section>
-
-        <section id="section3">
-            <h3>User Alerts</h3>
-            <p>Set alerts for stock price changes and never miss an opportunity.</p>
-            <img src="images/alert.jpg" alt="User Alerts">
-        </section>
-
-        <section id="section4">
-            <h3>Favourite Stocks</h3>
-            <p>Maintain a list of your favorite stocks for quick access.</p>
-            <img src="images/favourite.png" alt="Favourite Stocks">
+        <section id="stock-display">
+            <h2>Real-Time Stock Data</h2>
+            <div id="fetched-stock-data">
+                <!-- The fetched stock data will be displayed here -->
+            </div>
         </section>
     </main>
 
@@ -94,5 +41,7 @@
             <a href="https://github.com/noblereddythokala/MAPLEFOLIO" target="_blank">GitHub Repository</a>
         </p>
     </footer>
+
+    <script src="main.js"></script> <!-- New JS file -->
 </body>
 </html>

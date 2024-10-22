@@ -6,6 +6,7 @@
     <meta name="description" content="Manage your favourite stocks on Maplefolio.">
     <title>Maplefolio - Favourite Stocks</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="favourite.css"> <!-- New CSS file -->
 </head>
 <body>
     <header>
@@ -28,14 +29,13 @@
     <main>
         <section id="favourites-section">
             <h2>Manage Your Favourite Stocks</h2>
-            <p>Easily access and track the stocks that matter to you.</p>
-            <form>
-                <label for="add-stock">Add Stock:</label>
-                <input type="text" id="add-stock" name="add-stock" placeholder="e.g., AMZN">
+            <form id="add-favorite-form">
+                <label for="favorite-stock">Add Stock:</label>
+                <input type="text" id="favorite-stock" name="add-stock" placeholder="e.g., AMZN">
                 <button type="submit">Add to Favourites</button>
             </form>
             <h3>Your Favourites:</h3>
-            <ul>
+            <ul id="favorite-list">
                 <li>AAPL</li>
                 <li>TSLA</li>
                 <li>GOOGL</li>
@@ -49,5 +49,7 @@
             <a href="https://github.com/noblereddythokala/MAPLEFOLIO" target="_blank">GitHub Repository</a>
         </p>
     </footer>
+
+    <script src="favourite.js"></script> <!-- New JS file -->
 </body>
 </html>
