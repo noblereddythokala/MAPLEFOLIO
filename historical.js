@@ -53,8 +53,8 @@ document.getElementById('historical-form').addEventListener('submit', async func
     
     if (historicalData && historicalData['Time Series (Daily)']) {
         const timeSeries = historicalData['Time Series (Daily)'];
-        const labels = Object.keys(timeSeries).reverse(); // Dates
-        const prices = Object.values(timeSeries).map(info => parseFloat(info['4. close'])).reverse(); // Closing prices
+        const labels = Object.keys(timeSeries).reverse(); 
+        const prices = Object.values(timeSeries).map(info => parseFloat(info['4. close'])).reverse();
 
         createChart(labels, prices);
     } else {
