@@ -6,7 +6,7 @@
     <meta name="description" content="View real-time stock prices on Maplefolio.">
     <title>Maplefolio - Stock Price Display</title>
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="stocks.css"> <!-- New CSS file -->
+    <link rel="stylesheet" href="stocks.css"> 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -23,16 +23,17 @@
                 <li><a href="user.html">User Alerts</a></li>
                 <li><a href="favourite.html">Favourite Stocks</a></li>
                 <li><a href="login.html" class="login-button">Login</a></li>
+                <li><input type="text" id="stockSymbol" placeholder="Enter stock symbol (e.g., MSFT)">
+                <button id="searchBtn">Search</button></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="real-time-prices">
-            <h2>Real-Time Stock Prices</h2>
-            <p>View up-to-date stock prices in real time to make informed investment decisions.</p>
-            <canvas id="stockChart" width="400" height="200"></canvas> <!-- For chart -->
-        </section>
+        <main>
+            <h2>Stock Data</h2>
+            <div id="output"></div>
+           
     </main>
 
     <footer>
@@ -42,6 +43,6 @@
         </p>
     </footer>
 
-    <script src="stocks.js"></script> <!-- New JS file -->
+    <script src="stocks.js"></script> 
 </body>
 </html>

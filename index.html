@@ -7,6 +7,8 @@
     <title>Maplefolio - Your Stock Market Companion</title>
     <link rel="stylesheet" href="main.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    
 </head>
 <body>
     <header>
@@ -22,18 +24,45 @@
                 <li><a href="user.html">User Alerts</a></li>
                 <li><a href="favourite.html">Favourite Stocks</a></li>
                 <li><a href="login.html" class="login-button">Login</a></li>
+                <li><input type="text" id="stockSymbol" placeholder="Enter stock symbol (e.g., MSFT)">
+                <button id="searchBtn">Search</button></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="stock-display">
-            <h2>Real-Time Stock Data</h2>
-            <div id="fetched-stock-data">
-                <!-- The fetched stock data will be displayed here -->
+
+        <div class="container">
+            <div class="welcome-section">
+                <h2>Welcome to Maple Market Insights</h2>
+                <h3>Your One-Stop Solution for Stock Market Insights</h3>
+                <img src="images/home.jpeg">
+                <p><b>Stay ahead of the market with our comprehensive features:</b></p>
+    
+                <div class="feature">
+                    <strong>Real-Time Stock Prices:</strong> Access the latest stock prices and market data at your fingertips.
+                </div>
+    
+                <div class="feature">
+                    <strong>Historical Data Analysis:</strong> Explore past performance with interactive charts and moving averages to inform your investment decisions.
+                </div>
+    
+                <div class="feature">
+                    <strong>Stock Alerts:</strong> Set customizable alerts to monitor stock price changes and never miss an opportunity.
+                </div>
+    
+                <div class="feature">
+                    <strong>Favorites List:</strong> Easily manage and track your favorite stocks for quick access.
+                </div>
+    
+                <div class="feature">
+                    <strong>Market News:</strong> Stay updated with the latest news and events impacting the stock market, helping you make informed choices.
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
+        At Maple Market Insights, we provide a user-friendly interface designed for both beginners and seasoned investors. Whether you’re looking to make informed trades or simply keep an eye on your investments, our platform is tailored to meet your needs.
+    </main>     
+    
 
     <footer>
         <p>&copy; 2024 Maplefolio. All rights reserved.</p>
@@ -41,7 +70,8 @@
             <a href="https://github.com/noblereddythokala/MAPLEFOLIO" target="_blank">GitHub Repository</a>
         </p>
     </footer>
+    <script src="main.js"></script> 
+    <script src="historical.js"></script> 
 
-    <script src="main.js"></script> <!-- New JS file -->
 </body>
 </html>

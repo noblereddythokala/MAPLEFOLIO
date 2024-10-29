@@ -47,7 +47,7 @@ h1 {
 
 /* Hover effect for the heading */
 h1:hover {
-    color: #ffd700; /* Change color to gold on hover */
+    color:blue; /* Change color to gold on hover */
     transform: scale(1.05); /* Slightly enlarge the heading on hover */
 }
 
@@ -61,7 +61,9 @@ nav {
     justify-content: center;
     gap: 20px; /* Space between menu items */
 }
-
+.container h2{
+    color:#2e3b55;
+}
 .menu a {
     color: white;
     text-decoration: none;
@@ -75,7 +77,15 @@ nav {
     background-color: #ffd700; /* Yellow background on hover */
     color: #2e3b55; /* Dark blue text on hover */
 }
-
+.welcome-section {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.feature {
+    margin-bottom: 15px;
+}
 /* Main content styles */
 main {
     padding: 40px 20px;
