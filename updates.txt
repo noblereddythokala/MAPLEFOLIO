@@ -1,0 +1,8 @@
+{home consists of creativeness..{styles for textbox ,search bar ,menu bar etc} hamberger menu if possible remove logo image responsiveness} -------sai 
+
+{remove search bar  and historical prices and add it in stock display,add history symbol
+add moving stock price bar 
+in stock display add graphs and all details low high ,hourly ,etc, etc} ------ shiva and nithish
+
+login and register saving credentials and creating data for saving favourite list -----noble reddy
+
