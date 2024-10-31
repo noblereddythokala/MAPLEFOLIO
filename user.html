@@ -20,10 +20,11 @@
                 <li><a href="stocks.html">Stock Price Display</a></li>
                 <li><a href="historical.html">Historical Prices</a></li>
                 <li><a href="user.html" class="active">User Alerts</a></li>
-                <li><a href="favourite.html">Favourite Stocks</a></li>
-                <li><a href="login.html" class="login-button">Login</a></li>
+                <li id="favorite-stocks" style="display: none;"><a href="favourite.html">Favourite Stocks</a></li>
+                
                 <li><input type="text" id="stockSymbol" placeholder="Enter stock symbol (e.g., MSFT)">
                 <button id="searchBtn">Search</button></li>
+                <li id="login-button" onclick="login.html"><button class="menu-item">Login</button> </li>
             </ul>
         </nav>
     </header>
@@ -47,7 +48,17 @@
             <a href="https://github.com/noblereddythokala/MAPLEFOLIO" target="_blank">GitHub Repository</a>
         </p>
     </footer>
+     <!-- This is  core Firebase JS SDK it is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 
+ <!-- for more use this link  https://firebase.google.com/docs/web/setup#available-libraries -->
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+ <script type = 'module'>import{ getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";</script> 
+
+ <!-- we created this to use intialize firebase -->
+ <script src ="firebase_init.js"></script>  
+ <script src="login_check.js" type="module"></script>
     <script src="user.js"></script> <!-- New JS file -->
 </body>
 </html>

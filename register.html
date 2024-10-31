@@ -19,10 +19,11 @@
                 <li><a href="stocks.html">Stock Price Display</a></li>
                 <li><a href="historical.html">Historical Prices</a></li>
                 <li><a href="user.html">User Alerts</a></li>
-                <li><a href="favourite.html">Favourite Stocks</a></li>
-                <li><a href="login.html" class="active">Login</a></li>
+                <li id="favorite-stocks" style="display: none;"><a href="favourite.html">Favourite Stocks</a></li>
+               
                 <li><input type="text" id="stockSymbol" placeholder="Enter stock symbol (e.g., MSFT)">
                  <button id="searchBtn">Search</button></li>
+                 <li id="login-button" onclick="login.html"><button class="menu-item">Login</button> </li>
             </ul>
         </nav>
     </header>
@@ -66,7 +67,7 @@
 
  <!-- we created this to use intialize firebase -->
  <script src ="firebase_init.js"></script>  
-
+ <script src="login_check.js" type="module"></script>
 <!-- Our script must be loaded after firebase references -->
 <script src="register.js"></script>
 </html>

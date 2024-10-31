@@ -13,7 +13,6 @@ if (!validate_email(email) || !validate_password(password)) {
 // Log the user in
 auth.signInWithEmailAndPassword(email, password)
   .then(() => {
-    alert('Login Successful');
     window.location.href = 'dashboard.html';  
   })
   .catch(error => alert(error.message));

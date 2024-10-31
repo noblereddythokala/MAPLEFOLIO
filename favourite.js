@@ -1,3 +1,5 @@
+
+
 // favourite.js
 
 const favoriteStocks = JSON.parse(localStorage.getItem('favoriteStocks')) || [];
@@ -31,3 +33,18 @@ document.getElementById('add-favorite-form').addEventListener('submit', function
 });
 
 window.onload = displayFavorites;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

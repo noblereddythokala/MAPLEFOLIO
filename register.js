@@ -28,7 +28,8 @@ function register() {
       };
 
       database.ref('users/' + user.uid).set(user_data);
-      alert('User Registered!');
+      auth.signOut(); // This will sign the user out
+      window.location.href = 'login.html';  
     })
     .catch(error => alert(error.message));
 }
