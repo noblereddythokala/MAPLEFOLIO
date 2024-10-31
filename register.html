@@ -30,16 +30,21 @@
     <main>
         <section id="login-section">
             <h2>Login to Your Account</h2>
-            <form >
+            <form>
                 <label for="email">Email:</label>
-                <input type="text" id="email" name="email" placeholder="Enter your email">
+                <input type="text" id="email" placeholder="Enter your email">
+                
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" placeholder="let us call you">
+                <input type="text" id="username" placeholder="Enter username">
+              
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password">
-                <button onclick=register()>Register</button>
-            </form>
-            <p> have an account? <a href="login.html">sign in</a>.</p>
+                <input type="password" id="password" placeholder="Enter your password">
+              
+              
+                <button type="button" onclick="register()">Register</button>
+              </form>
+              
+            <p> have an account? <a href="login.html">sign in</a>.</p> 
         </section>
     </main>
 
@@ -50,14 +55,15 @@
         </p>
     </footer>
 
-   <!-- The core Firebase JS SDK is always required and must be listed first -->
-   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-
-   <!-- TODO: Add SDKs for Firebase products that you want to use  https://firebase.google.com/docs/web/setup#available-libraries -->
-   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
-
-  <!-- Our script must be loaded after firebase references -->
-  <script src="register.js"></script>
+  
 </body>
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+ <!-- TODO: Add SDKs for Firebase products that you want to use  https://firebase.google.com/docs/web/setup#available-libraries -->
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+<!-- Our script must be loaded after firebase references -->
+<script src="register.js"></script>
 </html>
