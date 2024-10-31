@@ -19,21 +19,29 @@
             <ul class="menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="stocks.html" class="active">Stock Price Display</a></li>
-                <li><a href="historical.html">Historical Prices</a></li>
+                <li><a href="market.html">Live News</a></li><li>
                 <li><a href="user.html">User Alerts</a></li>
-                <li id="favorite-stocks" style="display: none;"><a href="favourite.html">Favourite Stocks</a></li>
-               
-                <li><input type="text" id="stockSymbol" placeholder="Enter stock symbol (e.g., MSFT)">
-                <button id="searchBtn">Search</button></li>
-                <li id="login-button" onclick="login.html"><button class="menu-item">Login</button> </li>
+                <li><a href="favourite.html">Favourite Stocks</a></li>
+                <li><a href="login.html" class="login-button">Login</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <main>
-            <h2>Stock Data</h2>
-            <div id="output"></div>
+        <form id="historical-form">
+            <input type="text" id="stock-symbol" placeholder="Enter stock symbol" required>
+            <select id="data-type">
+                <option value="intraday">Intraday (5 min)</option>
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+            </select>
+            <button type="submit">Fetch Data</button>
+        </form>
+        <div id="output"></div>
+        <canvas id="historicalChart"></canvas>
+        
+        
            
     </main>
 
