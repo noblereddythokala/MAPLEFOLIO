@@ -6,7 +6,6 @@
     <meta name="description" content="Login to Maplefolio to access personalized stock insights.">
     <title>Maplefolio - Login</title>
     <link rel="stylesheet" href="main.css">
-   
 </head>
 <body>
     <header>
@@ -22,10 +21,8 @@
                 <li><a href="user.html">User Alerts</a></li>
                 <li><a href="favourite.html">Favourite Stocks</a></li>
                 <li><a href="login.html" class="active">Login</a></li>
-                <li>
-                    <input type="text" id="stockSymbol" placeholder="Enter stock symbol (e.g., MSFT)">
-                    <button id="searchBtn">Search</button>
-                </li>
+                <li><input type="text" id="stockSymbol" placeholder="Enter stock symbol (e.g., MSFT)">
+                 <button id="searchBtn">Search</button></li>
             </ul>
         </nav>
     </header>
@@ -33,16 +30,16 @@
     <main>
         <section id="login-section">
             <h2>Login to Your Account</h2>
-            <form onsubmit="event.preventDefault(); login();">
+            <form >
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                
+                <input type="text" id="email" name="email" placeholder="Enter your email">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="let us call you">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
-                
-                <button type="submit">Login</button>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+                <button onclick=register()>Register</button>
             </form>
-            <p>Don't have an account? <a href="register.html">Register here</a>.</p>
+            <p> have an account? <a href="login.html">sign in</a>.</p>
         </section>
     </main>
 
@@ -53,12 +50,14 @@
         </p>
     </footer>
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"></script>
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 
-    <!-- Custom JS -->
-    <script src="login.js" defer></script>
+   <!-- TODO: Add SDKs for Firebase products that you want to use  https://firebase.google.com/docs/web/setup#available-libraries -->
+   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+  <!-- Our script must be loaded after firebase references -->
+  <script src="register.js"></script>
 </body>
 </html>

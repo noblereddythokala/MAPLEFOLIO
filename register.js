@@ -1,4 +1,5 @@
-// Your web app's Firebase configuration
+
+ // Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyCVByCKv3eWtlD1ge3yvTywYwX0obogrCU",
     authDomain: "maplemarkets.firebaseapp.com",
@@ -13,20 +14,24 @@ const firebaseConfig = {
   const auth = firebase.auth()
   const database = firebase.database()
   
-  // Set up our login function
-  function login () {
+ 
+ // Set up our register function
+  function register () {
     // Get all our input fields
     email = document.getElementById('email').value
+    user = document.getElementById('user').value
     password = document.getElementById('password').value
   
     // Validate input fields
-    if (validate_email(email) == false || validate_password(password) == false) {
-      alert('Email or Password is Outta Line!!')
+    if (validate_email(email) == false || validate_password(password) == false || validate_user(user)==false ){
+      alert('Email or Password or username is not following conventions!!')
       return
       // Don't continue running the code
     }
-  
-    auth.signInWithEmailAndPassword(email, password)
+    
+   
+    // Move on with Auth
+    auth.createUserWithEmailAndPassword(email, password)
     .then(function() {
       // Declare user variable
       var user = auth.currentUser
@@ -36,15 +41,16 @@ const firebaseConfig = {
   
       // Create User data
       var user_data = {
+        email : email,
+        user : user,
         last_login : Date.now()
       }
   
       // Push to Firebase Database
-      database_ref.child('users/' + user.uid).update(user_data)
+      database_ref.child('users/' + user.uid).set(user_data)
   
       // DOne
-      alert('User Logged In!!')
-  
+      alert('User Created!!')
     })
     .catch(function(error) {
       // Firebase will use this to alert of its errors
@@ -53,11 +59,38 @@ const firebaseConfig = {
   
       alert(error_message)
     })
+
+  }
+
+   // Validate Functions
+   function validate_email(email) {
+    expression = /^[^@]+@\w+(\.\w+)+\w$/
+    if (expression.test(email) == true) {
+      // Email is good
+      return true
+    } else {
+      // Email is not good
+      return false
+    }
   }
   
-  
-  
-  
- 
-  
+  function validate_password(password) {
+    // Firebase only accepts lengths greater than 6
+    if (password < 6) {
+      return false
+    } else {
+      return true
+    }
+  }
+
+  function validate_user(password) {
+    // Firebase only accepts lengths greater than 6
+    if (user < 6) {
+      return false
+    } else {
+      return true
+    }
+  }
+
+
   
