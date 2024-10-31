@@ -33,10 +33,10 @@
             <h2>Login to Your Account</h2>
             <form action="dashboard.html" method="post">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" placeholder="Enter your username">
+                <input type="text" id="email" name="email" placeholder="Enter your username">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password">
-                <button type="submit">Login</button>
+                <button onclick=signIn()>Login</button>
             </form>
             <p>Don't have an account? <a href="register.html">Register here</a>.</p>
         </section>
@@ -50,5 +50,26 @@
     </footer>
 
     <script src="login.js"></script> <!-- New JS file -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyDKC-hGCuTpivbO14a5QYc70svcHDZfLDQ",
+          authDomain: "maplefolio-9ae50.firebaseapp.com",
+          projectId: "maplefolio-9ae50",
+          storageBucket: "maplefolio-9ae50.appspot.com",
+          messagingSenderId: "858261258150",
+          appId: "1:858261258150:web:c4fa8d095be827b0371967",
+          measurementId: "G-70E3YR9X3E"
+        };   
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
 </body>
 </html>
