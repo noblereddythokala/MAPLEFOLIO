@@ -23,6 +23,7 @@ auth.signInWithEmailAndPassword(email, password)
       const userData = snapshot.val(); // Get the actual data
       const username = userData.username; // Access the username from the data
       console.log(`Welcome back, ${username}!`);
+      localStorage.setItem("retrieved_username", username);  //saves the username retrieved from the database to the browser storage
       window.location.href = 'dashboard.html';
     } else {
       alert('User data not found!');
