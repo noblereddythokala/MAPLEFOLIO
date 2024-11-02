@@ -13,7 +13,20 @@ if (!validate_email(email) || !validate_password(password)) {
 // Log the user in
 auth.signInWithEmailAndPassword(email, password)
   .then(() => {
-    window.location.href = 'dashboard.html';  
+    const user = auth.currentUser;
+    // Wait for the Promise to resolve
+    console.log('User UID:', user.uid);
+    return database.ref('users/' + user.uid).once('value');
+  })
+  .then(snapshot => {
+    if (snapshot.exists()) {
+      const userData = snapshot.val(); // Get the actual data
+      const username = userData.username; // Access the username from the data
+      console.log(`Welcome back, ${username}!`);
+      window.location.href = 'dashboard.html';
+    } else {
+      alert('User data not found!');
+    }
   })
   .catch(error => alert(error.message));
 }
@@ -31,3 +44,4 @@ return password.length >= 6;
 function validate_field(field) {
 return field && field.length > 0;
 }
+

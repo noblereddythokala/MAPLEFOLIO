@@ -1,10 +1,8 @@
-
 // Register function
 function register() {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
   const username = document.getElementById('username').value;
-  
 
   // Validate input
   if (!validate_email(email) || !validate_password(password)) {
@@ -24,17 +22,20 @@ function register() {
         email: email,
         username: username,
         password:password,
-        last_login: Date.now()
+        last_login: Date.now() // Removed password for security
       };
-
-      database.ref('users/' + user.uid).set(user_data);
+      return database.ref('users/' + user.uid).set(user_data);
+    })
+    .then(() => {
+      console.log("User data saved successfully!"); // Confirm saving data
       auth.signOut(); // This will sign the user out
       window.location.href = 'login.html';  
     })
-    .catch(error => alert(error.message));
+    .catch(error => {
+      console.error("Error during registration:", error.message); // Log error details
+      alert(error.message);
+    });
 }
-
-
 
 // Validation functions
 function validate_email(email) {

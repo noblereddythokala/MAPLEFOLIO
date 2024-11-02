@@ -13,6 +13,7 @@ onAuthStateChanged(auth, (user) => {
         document.getElementById("login-button").onclick = () => {
             firebase.auth().signOut().then(() => {
                 console.log("User signed out.");
+                localStorage.removeItem('username');
             }).catch((error) => {
                 console.error("Sign out error", error);
             });
