@@ -27,7 +27,6 @@
             </ul>
         </nav>
     </header>
-
     <main>
         <form id="historical-form">
             <input type="text" id="stock-symbol" placeholder="Enter stock symbol" required>
@@ -39,12 +38,19 @@
             </select>
             <button type="submit">Fetch Data</button>
         </form>
+        
+        
+        <div id="date-filter" style="display: none;">
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date">
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date">
+            <button id="filter-data">Filter Data</button>
+        </div>
+        
         <canvas id="historicalChart"></canvas>
         <div id="output"></div>
-       
         
-        
-           
     </main>
 
     <footer>

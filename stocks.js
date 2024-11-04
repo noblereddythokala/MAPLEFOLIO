@@ -6,13 +6,15 @@ const options = {
     }
 };
 
+let allHistoricalData = {};  // Variable to store the entire dataset
+
 async function fetchData(symbol, dataType) {
     let url;
 
     if (dataType === 'intraday') {
         url = `https://alpha-vantage.p.rapidapi.com/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&outputsize=full&datatype=json`;
     } else if (dataType === 'daily') {
-        url = `https://alpha-vantage.p.rapidapi.com/query?function=TIME_SERIES_DAILY&symbol=${symbol}&outputsize=compact&datatype=json`;
+        url = `https://alpha-vantage.p.rapidapi.com/query?function=TIME_SERIES_DAILY&symbol=${symbol}&outputsize=full&datatype=json`;
     } else if (dataType === 'weekly') {
         url = `https://alpha-vantage.p.rapidapi.com/query?function=TIME_SERIES_WEEKLY&symbol=${symbol}&datatype=json`;
     } else if (dataType === 'monthly') {
@@ -25,27 +27,30 @@ async function fetchData(symbol, dataType) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const result = await response.json();
-        console.log('Fetched data:', result); 
-        return result;
+        allHistoricalData[dataType] = result;  // Store fetched data in the global variable
+        console.log('Fetched data:', result);
+        displayData(symbol, dataType);  // Display data immediately after fetching
+
+        // Show date filtering options after data is fetched
+        document.getElementById('date-filter').style.display = 'block';
     } catch (error) {
         console.error('Error fetching data:', error.message || error);
-        alert('Error fetching data. Please check the stock symbol or try again later.');
     }
 }
 
-function displayData(data, symbol, dataType) {
+function displayData(symbol, dataType) {
     const output = document.getElementById('output');
     output.innerHTML = '';
 
     let timeSeries;
     if (dataType === 'intraday') {
-        timeSeries = data['Time Series (5min)'];
+        timeSeries = allHistoricalData[dataType]['Time Series (5min)'];
     } else if (dataType === 'daily') {
-        timeSeries = data['Time Series (Daily)'];
+        timeSeries = allHistoricalData[dataType]['Time Series (Daily)'];
     } else if (dataType === 'weekly') {
-        timeSeries = data['Weekly Time Series'];
+        timeSeries = allHistoricalData[dataType]['Weekly Time Series'];
     } else if (dataType === 'monthly') {
-        timeSeries = data['Monthly Time Series'];
+        timeSeries = allHistoricalData[dataType]['Monthly Time Series'];
     }
 
     if (!timeSeries) {
@@ -53,20 +58,15 @@ function displayData(data, symbol, dataType) {
         return;
     }
 
-   
+    // Sort data by date
     const filteredData = Object.entries(timeSeries).sort(([a], [b]) => new Date(b) - new Date(a));
 
-   
     const labels = filteredData.map(([date]) => date);
     const prices = filteredData.map(([, info]) => parseFloat(info['4. close']));
 
-    
     createChart(labels, prices);
-
-   
     createTable(filteredData, symbol, dataType, output);
 }
-
 
 function createTable(filteredData, symbol, dataType, output) {
     const symbolHeading = document.createElement('h2');
@@ -96,7 +96,7 @@ function createTable(filteredData, symbol, dataType, output) {
         const high = info['2. high'];
         const low = info['3. low'];
         const close = info['4. close'];
-        const volume = info['5. volume'] 
+        const volume = info['5. volume'];
 
         const row = document.createElement('tr');
         row.innerHTML = `
@@ -118,7 +118,7 @@ let historicalChart;
 function createChart(labels, data) {
     const ctx = document.getElementById('historicalChart').getContext('2d');
     if (historicalChart) {
-        historicalChart.destroy(); 
+        historicalChart.destroy();
     }
     historicalChart = new Chart(ctx, {
         type: 'line',
@@ -142,16 +142,55 @@ function createChart(labels, data) {
     });
 }
 
+// Event listener for form submission
 document.getElementById('historical-form').addEventListener('submit', async function(e) {
     e.preventDefault();
     const stockSymbol = document.getElementById('stock-symbol').value.trim().toUpperCase();
     const dataType = document.getElementById('data-type').value;
 
-    const historicalData = await fetchData(stockSymbol, dataType);
-
-    if (historicalData) {
-        displayData(historicalData, stockSymbol, dataType);
-    } else {
-        alert('No historical data found for this stock symbol.');
-    }
+    // Fetch data from API
+    await fetchData(stockSymbol, dataType);
 });
+
+// Event listener for filtering data by date
+document.getElementById('filter-data').addEventListener('click', function() {
+    const dataType = document.getElementById('data-type').value;
+    const startDate = document.getElementById('start-date').value;
+    const endDate = document.getElementById('end-date').value;
+
+    // Display the data filtered by the specified date range
+    displayDataFiltered(startDate, endDate, dataType);
+});
+
+function displayDataFiltered(startDate, endDate, dataType) {
+    const output = document.getElementById('output');
+    output.innerHTML = '';
+
+    let timeSeries;
+    if (dataType === 'intraday') {
+        timeSeries = allHistoricalData[dataType]['Time Series (5min)'];
+    } else if (dataType === 'daily') {
+        timeSeries = allHistoricalData[dataType]['Time Series (Daily)'];
+    } else if (dataType === 'weekly') {
+        timeSeries = allHistoricalData[dataType]['Weekly Time Series'];
+    } else if (dataType === 'monthly') {
+        timeSeries = allHistoricalData[dataType]['Monthly Time Series'];
+    }
+
+    if (!timeSeries) {
+        output.innerHTML = '<p>No data found. Please check the stock symbol.</p>';
+        return;
+    }
+
+    // Filter data by the selected date range
+    const filteredData = Object.entries(timeSeries).filter(([date]) => {
+        return (!startDate || new Date(date) >= new Date(startDate)) &&
+               (!endDate || new Date(date) <= new Date(endDate));
+    }).sort(([a], [b]) => new Date(b) - new Date(a));
+
+    const labels = filteredData.map(([date]) => date);
+    const prices = filteredData.map(([, info]) => parseFloat(info['4. close']));
+
+    createChart(labels, prices);
+    createTable(filteredData, 'Filtered Data', dataType, output);
+}
