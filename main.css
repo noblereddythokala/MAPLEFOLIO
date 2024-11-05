@@ -1,4 +1,3 @@
-/* Reset default styles */
 body, h1, h2, h3, p, ul, table {
     margin: 0;
     padding: 0;
@@ -8,102 +7,94 @@ body, h1, h2, h3, p, ul, table {
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f5f5f5; /* Light grey background */
+    background-color: #f5f5f5;
     color: #333;
 }
 
-/* Header styles */
 header {
-    background-color: #2e3b55; /* Dark blue background */
+    background-color: #2e3b55;
     color: white;
     text-align: center;
     padding: 20px 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    position: relative; /* To position the logo and heading */
-    background: linear-gradient(to right, #2e3b55, #1c2a44); /* Gradient from dark blue to navy */
+    position: relative;
+    background: linear-gradient(to right, #2e3b55, #1c2a44);
 }
 
-/* Default styles for logo (desktop view) */
 .logo {
-    position: absolute; /* Positioning the logo in the header */
-    left: 20px; /* Aligning to the left */
-    top: 20px; /* Aligning to the top */
+    position: absolute;
+    left: 20px;
+    top: 20px;
 }
 
 .logo img {
-    width: 150px; /* Set default logo width */
+    width: 150px;
     height: auto;
     transition: transform 0.3s ease-in-out;
 }
 
-/* Hover effect for logo */
 .logo img:hover {
     transform: scale(1.1);
 }
 
-/* Responsive styles for mobile view */
 @media (max-width: 768px) {
-    /* Adjust the logo's positioning for smaller screens */
     .logo {
-        position: relative; /* Use relative positioning to avoid overlapping */
-        left: 0; /* Align logo to the left */
-        top: 0; /* Remove any top positioning */
-        margin-bottom: 10px; /* Add bottom margin to avoid overlap with the heading */
-        text-align: center; /* Center logo on mobile screens */
+        position: relative;
+        left: 0;
+        top: 0;
+        margin-bottom: 10px;
+        text-align: center;
     }
 
     .logo img {
-        width: 120px; /* Adjust logo size for mobile view */
+        width: 120px;
     }
 
     h1 {
-        margin-top: 60px; /* Provide space for the logo on mobile */
+        margin-top: 60px;
     }
 
     nav {
-        text-align: center; /* Center the navigation menu */
+        text-align: center;
     }
 
-    /* Adjusting other elements for smaller screens */
     .menu {
         flex-direction: column;
         gap: 15px;
     }
 }
 
-
-
 h1 {
     margin-top: 0;
-    font-size: 3rem; /* Increase font size */
-    color: #ff4500; /* Orange red color */
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Larger shadow for more prominence */
-    font-family: 'Georgia', serif; /* Give it a more formal, serif font */
-    font-weight: bold; /* Make it bold */
-    letter-spacing: 2px; /* Space out the letters for emphasis */
-    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition effect on hover */
-    text-align: center; /* Keep heading centered */
+    font-size: 3rem;
+    color: #ff4500;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    text-align: center;
 }
 
-/* Hover effect for the heading */
 h1:hover {
-    color:blue; /* Change color to gold on hover */
-    transform: scale(1.05); /* Slightly enlarge the heading on hover */
+    color: blue;
+    transform: scale(1.05);
 }
 
-/* Navigation styles */
 nav {
-    margin-top: 60px; /* Space below the heading */
+    margin-top: 60px;
 }
 
 .menu {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Space between menu items */
+    gap: 20px;
 }
+
 .container h2{
     color:#2e3b55;
 }
+
 .menu a {
     color: white;
     text-decoration: none;
@@ -143,14 +134,14 @@ nav {
 }
 
 .dropdown li a:hover {
-    background-color: #ffd700; /* Highlighted on hover */
+    background-color: #ffd700;
 }
 
 .welcome-section {
     position: relative;
     padding: 80px 20px;
     background-image: url('images/home.jpeg');
-    background-attachment: fixed; /* Parallax effect */
+    background-attachment: fixed;
     background-size: cover;
     background-position: center;
     color: white;
@@ -158,15 +149,16 @@ nav {
 }
 
 .welcome-section h2, .welcome-section h3 {
-    color: #fff; /* Ensure text is visible */
+    color: #fff;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .menu a:hover {
-    background-color: #ff4500;  /* Bright orange */
+    background-color: #ff4500;
     color: #fff;
     transform: scale(1.05);
 }
+
 .welcome-section {
     padding: 20px;
     background-color: #f8f9fa;
@@ -199,29 +191,28 @@ nav {
 .feature {
     margin-bottom: 15px;
 }
-/* Main content styles */
+
 main {
     padding: 40px 20px;
     text-align: center;
-    background-color: white; /* White background for main content */
+    background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     max-width: 800px;
-    margin: 20px auto; /* Center the main content */
+    margin: 20px auto;
 }
 
 h2 {
     margin-bottom: 15px;
     font-size: 2rem;
-    color: #2e3b55; /* Dark blue */
+    color: #2e3b55;
     font-weight: bold;
 }
 
 section {
-    margin-bottom: 40px; /* Space between sections */
+    margin-bottom: 40px;
 }
 
-/* Stock price table styles */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -235,15 +226,14 @@ th, td {
 }
 
 th {
-    background-color: #f2f2f2; /* Light grey for headers */
+    background-color: #f2f2f2;
 }
 
-/* Image styles */
 section img {
-    max-width: 100%; /* Responsive image */
+    max-width: 100%;
     height: auto;
-    border-radius: 5px; /* Rounded corners for images */
-    margin-top: 10px; /* Space above images */
+    border-radius: 5px;
+    margin-top: 10px;
 }
 
 .stock-item {
@@ -254,9 +244,8 @@ section img {
     background-color: #f9f9f9;
 }
 
-/* Footer styles */
 footer {
-    background-color: #2e3b55; /* Dark blue background */
+    background-color: #2e3b55;
     color: white;
     text-align: center;
     padding: 15px 0;
@@ -264,7 +253,7 @@ footer {
 }
 
 footer a {
-    color: #ffd700; /* Yellow color for links */
+    color: #ffd700;
     text-decoration: none;
 }
 
@@ -272,18 +261,17 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Responsive styles */
 @media (max-width: 768px) {
     .menu {
         flex-direction: column;
     }
 
     .menu a {
-        padding: 10px; /* Adjust padding for mobile */
+        padding: 10px;
     }
 
     .logo img {
-        width: 120px; /* Adjust logo size for mobile */
+        width: 120px;
     }
 
     main h2 {
@@ -302,7 +290,7 @@ footer a:hover {
 }
 
 .social-links a:hover img {
-    transform: scale(1.1); /* Slight zoom on hover */
+    transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
@@ -319,10 +307,10 @@ footer a:hover {
         margin-bottom: 20px;
     }
 }
+
 nav {
     position: sticky;
     top: 0;
     background-color: #2e3b55;
     z-index: 100;
 }
-
