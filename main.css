@@ -20,18 +20,58 @@ header {
     padding: 20px 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     position: relative; /* To position the logo and heading */
+    background: linear-gradient(to right, #2e3b55, #1c2a44); /* Gradient from dark blue to navy */
 }
 
+/* Default styles for logo (desktop view) */
 .logo {
-    position: absolute; /* Positioning the logo */
+    position: absolute; /* Positioning the logo in the header */
     left: 20px; /* Aligning to the left */
     top: 20px; /* Aligning to the top */
 }
 
 .logo img {
-    width: 150px; /* Adjust the size of your logo */
+    width: 150px; /* Set default logo width */
     height: auto;
+    transition: transform 0.3s ease-in-out;
 }
+
+/* Hover effect for logo */
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive styles for mobile view */
+@media (max-width: 768px) {
+    /* Adjust the logo's positioning for smaller screens */
+    .logo {
+        position: relative; /* Use relative positioning to avoid overlapping */
+        left: 0; /* Align logo to the left */
+        top: 0; /* Remove any top positioning */
+        margin-bottom: 10px; /* Add bottom margin to avoid overlap with the heading */
+        text-align: center; /* Center logo on mobile screens */
+    }
+
+    .logo img {
+        width: 120px; /* Adjust logo size for mobile view */
+    }
+
+    h1 {
+        margin-top: 60px; /* Provide space for the logo on mobile */
+    }
+
+    nav {
+        text-align: center; /* Center the navigation menu */
+    }
+
+    /* Adjusting other elements for smaller screens */
+    .menu {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+
 
 h1 {
     margin-top: 0;
@@ -68,14 +108,64 @@ nav {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    padding: 10px 15px;
     border-radius: 5px;
-    transition: background 0.3s;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.menu-item {
+    position: relative;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #2e3b55;
+    list-style: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.menu-item:hover .dropdown {
+    display: block;
+}
+
+.dropdown li {
+    padding: 8px 12px;
+}
+
+.dropdown li a {
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown li a:hover {
+    background-color: #ffd700; /* Highlighted on hover */
+}
+
+.welcome-section {
+    position: relative;
+    padding: 80px 20px;
+    background-image: url('images/home.jpeg');
+    background-attachment: fixed; /* Parallax effect */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+
+.welcome-section h2, .welcome-section h3 {
+    color: #fff; /* Ensure text is visible */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .menu a:hover {
-    background-color: #ffd700; /* Yellow background on hover */
-    color: #2e3b55; /* Dark blue text on hover */
+    background-color: #ff4500;  /* Bright orange */
+    color: #fff;
+    transform: scale(1.05);
 }
 .welcome-section {
     padding: 20px;
@@ -83,6 +173,29 @@ nav {
     border-radius: 5px;
     margin-top: 20px;
 }
+
+.feature-card {
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card h3 {
+    color: #2e3b55;
+}
+
+.feature-card p {
+    color: #666;
+}
+
 .feature {
     margin-bottom: 15px;
 }
@@ -177,3 +290,39 @@ footer a:hover {
         font-size: 1.8rem;
     }
 }
+
+.social-links a {
+    margin: 0 10px;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover img {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-card {
+        margin-bottom: 20px;
+    }
+}
+nav {
+    position: sticky;
+    top: 0;
+    background-color: #2e3b55;
+    z-index: 100;
+}
+

@@ -7,16 +7,23 @@
     <title>Maplefolio - Your Stock Market Companion</title>
     <link rel="icon" href="/images/MAPLEFOLIO-removebg-preview.png" type="image/x-icon">
     <link rel="stylesheet" href="main.css">
-   
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
     
     
 </head>
 <body>
     <header>
+        <!-- Logo Section -->
         <div class="logo">
-            <img src="images/Maple Insights.webp" alt="Maplefolio Logo"> 
+            <img src="images/Maple Insights.webp" alt="Maplefolio Logo">
         </div>
-        <h1>Maple Market Insights</h1> 
+    
+        <!-- Main Heading -->
+        <h1>Maple Market Insights</h1>
+    
+        <!-- Navigation Menu -->
         <nav>
             <ul class="menu">
                 <li><a href="index.html">Home</a></li>
@@ -25,12 +32,40 @@
                 <li><a href="user.html">User Alerts</a></li>
                 <li id="favorite-stocks" style="display: none;"><a href="favourite.html">Favourite Stocks</a></li>
                 
-                <li id="login-button" onclick="login.html"><button class="menu-item">Login</button> </li>
+                <!-- Login Button -->
+                <li id="login-button">
+                    <button class="menu-item" onclick="location.href='login.html'">Login</button>
+                </li>
             </ul>
         </nav>
+    
+        <!-- User Profile Dropdown (hidden by default) -->
+        <div id="user-profile" style="display:none;">
+            <button class="menu-item" onclick="toggleProfileDropdown()">Profile</button>
+            <ul class="dropdown">
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </div>
     </header>
+    
+    <!-- Inline JavaScript for toggling the profile dropdown (optional) -->
+    <script>
+        function toggleProfileDropdown() {
+            const dropdown = document.querySelector('#user-profile .dropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+    
+    
 
     <main>
+
+        <div class="feature-card">
+            <h3>Real-Time Stock Prices</h3>
+            <p>Access the latest stock prices and market data at your fingertips.</p>
+        </div>
+        
 
         <div class="container">
             <div class="welcome-section">

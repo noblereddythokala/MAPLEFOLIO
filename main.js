@@ -20,3 +20,21 @@ onAuthStateChanged(auth, (user) => {
         document.getElementById("favorite-stocks").style.display = "none";
     }
 });
+
+AOS.init({
+    duration: 1000, // Animation duration
+    easing: 'ease-in-out', // Easing type
+});
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        document.getElementById("favorite-stocks").style.display = "block";
+        document.getElementById("login-button").style.display = "none"; // Hide login button
+        document.getElementById("user-profile").style.display = "block"; // Show user profile button
+        document.getElementById("user-name").textContent = `Welcome, ${user.displayName}`;
+    } else {
+        document.getElementById("favorite-stocks").style.display = "none";
+        document.getElementById("login-button").style.display = "block";
+        document.getElementById("user-profile").style.display = "none";
+    }
+});
