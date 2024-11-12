@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 body, h1, h2, h3, p, ul, table {
+=======
+* {
+>>>>>>> Stashed changes
     margin: 0;
     padding: 0;
     list-style: none;
@@ -91,8 +95,13 @@ nav {
     gap: 20px;
 }
 
+<<<<<<< Updated upstream
 .container h2{
     color:#2e3b55;
+=======
+.container h2 {
+    color: #2e3b55;
+>>>>>>> Stashed changes
 }
 
 .menu a {
@@ -107,6 +116,12 @@ nav {
 
 .menu-item {
     position: relative;
+    cursor: pointer;
+    color: white;
+
+}
+.menu-item button:hover{ 
+    background-color: #ff4500;
 }
 
 .dropdown {
@@ -165,6 +180,7 @@ nav {
     border-radius: 5px;
     margin-top: 20px;
 }
+
 
 .feature-card {
     background: #fff;

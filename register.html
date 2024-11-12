@@ -6,6 +6,7 @@
     <meta name="description" content="Login to Maplefolio to access personalized stock insights.">
     <title>Maplefolio - Login</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="register.css">
 </head>
 <body>
     <header>
@@ -22,7 +23,7 @@
                 <li id="favorite-stocks" style="display: none;"><a href="favourite.html">Favourite Stocks</a></li>
                
                 
-                 <li id="login-button" onclick="login.html"><button class="menu-item">Login</button> </li>
+                <li><a href="login.html" onclick="location.href='login.html'">Login</a></li>
             </ul>
         </nav>
     </header>
@@ -41,7 +42,7 @@
                 <input type="password" id="password" placeholder="Enter your password">
               
               
-                <button type="button" onclick="register()">Register</button>
+                <button id="button2" type="button" onclick="register()">Register</button>
               </form>
               
             <p> have an account? <a href="login.html">sign in</a>.</p> 

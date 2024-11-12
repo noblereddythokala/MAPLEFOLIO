@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     const options = {
         method: 'GET',
         headers: {
-            'x-rapidapi-key': 'd85862a3eamsha6bc8ad1d7335c5p12c851jsne25647dbabed',
+            'x-rapidapi-key': '89866b0b50mshe047dacb941eff1p199b83jsnef56d5f37d5b',
             'x-rapidapi-host': 'investing11.p.rapidapi.com'
         }
     };

@@ -7,6 +7,7 @@
     <title>Maplefolio - Login</title>
     <link rel="icon" href="/images/MAPLEFOLIO-removebg-preview.png" type="image/x-icon">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="login.css">
    
 </head>
 <body>
@@ -23,7 +24,7 @@
                 <li><a href="user.html">User Alerts</a></li>
                 <li id="favorite-stocks" style="display: none;"><a href="favourite.html">Favourite Stocks</a></li>
                 
-                    <li id="login-button" onclick="login.html"><button class="menu-item">Login</button> </li>
+                <li><a href="login.html" onclick="location.href='login.html'">Login</a></li>
                 </li>
             </ul>
         </nav>
@@ -41,7 +42,7 @@
                 <input type="password" id="password" placeholder="Enter your password">
               
               
-                <button type="button" onclick="login()">Login</button>
+                <button  id ="button1" type="button" onclick="login()">Login</button>
               </form>
             <p>Don't have an account? <a href="register.html">Register here</a>.</p>
         </section>

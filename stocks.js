@@ -6,7 +6,7 @@ const options = {
     }
 };
 
-let allHistoricalData = {};  // Variable to store the entire dataset
+let allHistoricalData = {}; 
 
 async function fetchData(symbol, dataType) {
     let url;
@@ -27,11 +27,11 @@ async function fetchData(symbol, dataType) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const result = await response.json();
-        allHistoricalData[dataType] = result;  // Store fetched data in the global variable
+        allHistoricalData[dataType] = result;  
         console.log('Fetched data:', result);
-        displayData(symbol, dataType);  // Display data immediately after fetching
+        displayData(symbol, dataType);  
 
-        // Show date filtering options after data is fetched
+        
         document.getElementById('date-filter').style.display = 'block';
     } catch (error) {
         console.error('Error fetching data:', error.message || error);
@@ -58,7 +58,6 @@ function displayData(symbol, dataType) {
         return;
     }
 
-    // Sort data by date
     const filteredData = Object.entries(timeSeries).sort(([a], [b]) => new Date(b) - new Date(a));
 
     const labels = filteredData.map(([date]) => date);
@@ -182,7 +181,7 @@ function displayDataFiltered(startDate, endDate, dataType) {
         return;
     }
 
-    // Filter data by the selected date range
+    
     const filteredData = Object.entries(timeSeries).filter(([date]) => {
         return (!startDate || new Date(date) >= new Date(startDate)) &&
                (!endDate || new Date(date) <= new Date(endDate));
