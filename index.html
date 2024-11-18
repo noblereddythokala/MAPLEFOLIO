@@ -7,95 +7,93 @@
     <title>Maplefolio - Your Stock Market Companion</title>
     <link rel="icon" href="/images/MAPLEFOLIO-removebg-preview.png" type="image/x-icon">
     <link rel="stylesheet" href="main.css">
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    
-    
-    
+    <script src="index.js"></script>
 </head>
 <body>
     <header>
-        <!-- Logo Section -->
-        <div class="logo">
-            <img src="images/Maple Insights.webp" alt="Maplefolio Logo">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="images/Maple Insights.webp" alt="Maplefolio Logo">
+                </div>
+                <div class="website-name">
+                    <h3>MAPLE MARKET INSIGHTS</h3>
+                </div>
+            </div>
+        
+           
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="stocks.html">Stock Price Display</a></li>
+                    <li><a href="market.html" class="active">Live News</a></li>
+                    <li><a href="user.html">User Alerts</a></li>
+                    <li id="favorite-stocks" style="display: none;"><a href="favourite.html">Favourite Stocks</a></li>
+                    <li><a href="login.html" onclick="location.href='login.html'">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+<section class="stock-ticker">
+    <div class="ticker-container">
+        <div class="stock-item">
+            <span class="stock-symbol">AAPL</span>
+            <span class="stock-price">$145.23</span>
         </div>
-    
-        <!-- Main Heading -->
-        <h1>Maple Market Insights</h1>
-    
-        <!-- Navigation Menu -->
-        <nav>
-            <ul class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="stocks.html">Stock Price Display</a></li>
-                <li><a href="market.html">Live News</a></li>
-                <li><a href="user.html">User Alerts</a></li>
-                <li id="favorite-stocks" style="display: none;"><a href="favourite.html">Favourite Stocks</a></li>
-
-                <li><a href="login.html" onclick="location.href='login.html'">Login</a></li>
-                </li>
-            </ul>
-        </nav>
-    
-        <!-- User Profile Dropdown (hidden by default) -->
-        <div id="user-profile" style="display:none;">
-            <button class="menu-item" onclick="toggleProfileDropdown()">Profile</button>
-            <ul class="dropdown">
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Logout</a></li>
-            </ul>
+        <div class="stock-item">
+            <span class="stock-symbol">GOOGL</span>
+            <span class="stock-price">$2729.89</span>
         </div>
-    </header>
-    
-    <!-- Inline JavaScript for toggling the profile dropdown (optional) -->
-    <script>
-        function toggleProfileDropdown() {
-            const dropdown = document.querySelector('#user-profile .dropdown');
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-        }
-    </script>
-    
-    
-
-    <main>
-
-        <div class="feature-card">
-            <h3>Real-Time Stock Prices</h3>
-            <p>Access the latest stock prices and market data at your fingertips.</p>
+        <div class="stock-item">
+            <span class="stock-symbol">MSFT</span>
+            <span class="stock-price">$276.89</span>
         </div>
+        <div class="stock-item">
+            <span class="stock-symbol">TSLA</span>
+            <span class="stock-price">$325.89</span>
+        </div>
+        <div class="stock-item">
+            <span class="stock-symbol">AMZN</span>
+            <span class="stock-price">$564.89</span>
+        </div>
+    </div>
+</section>
+
         
 
-        <div class="container">
-            <div class="welcome-section">
-                <h2>Welcome to Maple Market Insights</h2>
-                <h3>Your One-Stop Solution for Stock Market Insights</h3>
-                <img src="images/home.jpeg">
+    <main>
+        <section class="content">
+            <div class="text">
+                <h1>Welcome to Maple Market Insights</h>
+                <h4>Your One-Stop Solution for Stock Market Insights</h4>
                 <p><b>Stay ahead of the market with our comprehensive features:</b></p>
-    
+
                 <div class="feature">
                     <strong>Real-Time Stock Prices:</strong> Access the latest stock prices and market data at your fingertips.
                 </div>
-    
+
                 <div class="feature">
                     <strong>Historical Data Analysis:</strong> Explore past performance with interactive charts and moving averages to inform your investment decisions.
                 </div>
-    
+
                 <div class="feature">
                     <strong>Stock Alerts:</strong> Set customizable alerts to monitor stock price changes and never miss an opportunity.
                 </div>
-    
+
                 <div class="feature">
                     <strong>Favorites List:</strong> Easily manage and track your favorite stocks for quick access.
                 </div>
-    
+
                 <div class="feature">
                     <strong>Market News:</strong> Stay updated with the latest news and events impacting the stock market, helping you make informed choices.
                 </div>
             </div>
         </div>
-        At Maple Market Insights, we provide a user-friendly interface designed for both beginners and seasoned investors. Whether you’re looking to make informed trades or simply keep an eye on your investments, our platform is tailored to meet your needs.
-    </main>     
-    
+
+            <div class="image">
+                <img src="images/MAIN.jpeg" alt="Stock Picks Analysis">
+            </div>
+        </section>
+    </main>
 
     <footer>
         <p>&copy; 2024 Maplefolio. All rights reserved.</p>
@@ -103,20 +101,5 @@
             <a href="https://github.com/noblereddythokala/MAPLEFOLIO" target="_blank">GitHub Repository</a>
         </p>
     </footer>
-    <!-- This is  core Firebase JS SDK it is always required and must be listed first -->
- <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-
- <!-- for more use this link  https://firebase.google.com/docs/web/setup#available-libraries -->
- <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
- <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
- <script type = 'module'>import{ getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";</script> 
-
- <!-- we created this to use intialize firebase -->
- <script src ="firebase_init.js"></script>  
- <script src="login_check.js" type="module"></script> 
-
-
-
-    
 </body>
 </html>
