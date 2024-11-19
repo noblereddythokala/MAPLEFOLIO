@@ -14,13 +14,19 @@ if ($conn->connect_error) {
 }
 
 // Get the form data
-$name = isset($_POST['name']) ? $_POST['name'] : '';
-$email = isset($_POST['email']) ? $_POST['email'] : '';
-$message = isset($_POST['message']) ? $_POST['message'] : '';
+$name = isset($_POST['name']) ? trim($_POST['name']) : '';
+$email = isset($_POST['email']) ? trim($_POST['email']) : '';
+$message = isset($_POST['message']) ? trim($_POST['message']) : '';
 
 // Simple validation
 if (empty($name) || empty($email) || empty($message)) {
     echo "All fields are required.";
+    exit;
+}
+
+// Validate email format
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo "Invalid email format.";
     exit;
 }
 
@@ -30,12 +36,14 @@ $stmt->bind_param("sss", $name, $email, $message); // Bind parameters
 
 // Execute the query
 if ($stmt->execute()) {
-    echo "Your message has been sent successfully.";
+    // Success message
+    echo "Your message has been sent successfully!";
 } else {
+    // Error message if query fails
     echo "Error: " . $stmt->error;
 }
 
-// Close the connection
+// Close the statement and the connection
 $stmt->close();
 $conn->close();
 ?>
