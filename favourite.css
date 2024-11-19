@@ -1,0 +1,93 @@
+
+
+
+
+/* Main Section */
+main {
+    padding: 20px;
+    
+}
+
+/* Favourites Section */
+#favourites-section {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#favourites-section h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#add-favorite-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#add-favorite-form input {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+}
+
+#add-favorite-form button {
+    background-color: #3a7ca5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+#add-favorite-form button:hover {
+    background-color:#3a7ca5;
+}
+
+#favorite-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+#favorite-list li {
+    background-color: #f0f8ff;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#favorite-list li span {
+    font-weight: bold;
+}
+
+#favorite-list li button {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+#favorite-list li button:hover {
+    background-color: #e04e2b;
+}
+
+
