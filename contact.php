@@ -1,33 +1,41 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Check if all required fields are present
-    if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $message = $_POST['message'];
+// Database credentials
+$host = 'localhost'; // Change to your database host
+$dbname = 'maplefolio'; // Change to your database name
+$username = 'root'; // Change to your database username
+$password = ''; // Change to your database password
 
-        // Basic validation
-        if (empty($name) || empty($email) || empty($message)) {
-            echo json_encode(['status' => 'error', 'message' => 'All fields are required.']);
-            exit;
-        }
+// Create a connection
+$conn = new mysqli($host, $username, $password, $dbname);
 
-        // Email settings (Change these as needed)
-        $to = "support@maplefolio.com";  // Replace with your email address
-        $subject = "New Contact Form Submission";
-        $body = "Name: $name\nEmail: $email\nMessage:\n$message";
-        $headers = "From: $email";
-
-        // Send the email
-        if (mail($to, $subject, $body, $headers)) {
-            echo json_encode(['status' => 'success', 'message' => 'Your message has been sent successfully.']);
-        } else {
-            echo json_encode(['status' => 'error', 'message' => 'There was an issue sending your message. Please try again later.']);
-        }
-    } else {
-        echo json_encode(['status' => 'error', 'message' => 'Invalid request.']);
-    }
-} else {
-    echo json_encode(['status' => 'error', 'message' => 'Invalid request method.']);
+// Check for a connection error
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
+
+// Get the form data
+$name = isset($_POST['name']) ? $_POST['name'] : '';
+$email = isset($_POST['email']) ? $_POST['email'] : '';
+$message = isset($_POST['message']) ? $_POST['message'] : '';
+
+// Simple validation
+if (empty($name) || empty($email) || empty($message)) {
+    echo "All fields are required.";
+    exit;
+}
+
+// Prepare the SQL statement
+$stmt = $conn->prepare("INSERT INTO contact_messages (name, email, message) VALUES (?, ?, ?)");
+$stmt->bind_param("sss", $name, $email, $message); // Bind parameters
+
+// Execute the query
+if ($stmt->execute()) {
+    echo "Your message has been sent successfully.";
+} else {
+    echo "Error: " . $stmt->error;
+}
+
+// Close the connection
+$stmt->close();
+$conn->close();
 ?>
