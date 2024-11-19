@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login to Maplefolio to access personalized stock insights.">
+    <title>Maplefolio - Login</title>
+    <link rel="icon" href="/images/MAPLEFOLIO-removebg-preview.png" type="image/x-icon">
+  
+    
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="market.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/Maple Insights.webp" alt="Maplefolio Logo">
+        </div>
+        <h1>Maple Market Insights</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="stocks.html">Stock Price Display</a></li>
+                <li><a href="market.html">Live News</a></li>
+                <li><a href="user.html">User Alerts</a></li>
+                <li id="favorite-stocks" style="display: none;"><a href="favourite.html">Favourite Stocks</a></li>
+                <li><a href="login.html" onclick="location.href='login.html'">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="login-section">
+           
+            <div id="output"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Maplefolio. All rights reserved.</p>
+        <p>
+            <a href="https://github.com/noblereddythokala/MAPLEFOLIO" target="_blank">GitHub Repository</a>
+        </p>
+    </footer>
+    <!-- This is  core Firebase JS SDK it is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+ <!-- for more use this link  https://firebase.google.com/docs/web/setup#available-libraries -->
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+ <script type = 'module'>import{ getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";</script> 
+
+ <!-- we created this to use intialize firebase -->
+ <script src ="firebase_init.js"></script>  
+ <script src="login_check.js" type="module"></script> 
+   <!--   
+     remove these comments when u want to check the news article i commented this because i dont want to waste the api calls on everytime the page is loading 
+   
+     
+   
+   -->
+   <script src="market.js"></script>   
+</body>
+</html>

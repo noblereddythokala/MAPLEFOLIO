@@ -1,0 +1,62 @@
+
+
+main {
+    padding: 30px;
+}
+
+
+#alerts-section {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#alerts-section h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 1.1em;
+    color: #333;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 10px;
+    font-size: 1em;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color:  #3a7ca5;
+    outline: none;
+}
+
+#button {
+    padding: 10px 15px;
+    background-color:  #3a7ca5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
