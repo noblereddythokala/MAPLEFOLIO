@@ -131,7 +131,7 @@
                     document.getElementById("contact-form").reset(); // Reset the form
                 }
             };
-            xhr.send(name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&message=${encodeURIComponent(message)});
+            xhr.send(`name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&message=${encodeURIComponent(message)}`);
         });
 
         // Load contact info when the page loads
