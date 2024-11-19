@@ -6,11 +6,6 @@ h1{
     text-align: center;
 }
 
-
-
-
-
-
 .main {
     padding: 20px;
 }
@@ -42,19 +37,19 @@ form button {
 form input:focus,
 form select:focus,
 form button:focus {
-    border-color: #3a7ca5;
-    box-shadow: 0 0 5px rgba(58, 124, 165, 0.5);
+    border-color: red;
+    box-shadow: 0 0 5px rgba(203, 35, 35, 0.5);
 }
 
 form button {
-    background-color: #3a7ca5;
+    background-color: red;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 form button:hover {
-    background-color: #2e6480;
+    background-color: red;
 }
 
 
@@ -108,7 +103,7 @@ td {
 }
 
 th {
-    background-color: #3a7ca5;
+    background-color: red;
     color: white;
     font-weight: bold;
 }
