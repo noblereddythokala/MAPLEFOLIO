@@ -11,56 +11,23 @@
 </head>
 <body>
     <header>
-            <div class="header-left">
-                <div class="logo">
-                    <img src="images/Maple Insights.webp" alt="Maplefolio Logo">
-                </div>
-                <div class="website-name">
-                    <h3>MAPLE MARKET INSIGHTS</h3>
-                </div>
-            </div>
-        
-           
-            <nav>
-                <ul class="menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="stocks.html">Stock Price Display</a></li>
-                    <li><a href="market.html" class="active">Live News</a></li>
-                    <li><a href="user.html">User Alerts</a></li>
-                    <li id="favorite-stocks" style="display: none;"><a href="favourite.html">Favourite Stocks</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="login.html" onclick="location.href='login.html'">Login</a></li>
-                    
-                </ul>
-            </nav>
-        </header>
-        
-<section class="stock-ticker">
-    <div class="ticker-container">
-        <div class="stock-item">
-            <span class="stock-symbol">AAPL</span>
-            <span class="stock-price">$145.23</span>
+        <div class="logo">
+            <img src="images/Maple Insights.webp" alt="Maplefolio Logo"> 
         </div>
-        <div class="stock-item">
-            <span class="stock-symbol">GOOGL</span>
-            <span class="stock-price">$2729.89</span>
-        </div>
-        <div class="stock-item">
-            <span class="stock-symbol">MSFT</span>
-            <span class="stock-price">$276.89</span>
-        </div>
-        <div class="stock-item">
-            <span class="stock-symbol">TSLA</span>
-            <span class="stock-price">$325.89</span>
-        </div>
-        <div class="stock-item">
-            <span class="stock-symbol">AMZN</span>
-            <span class="stock-price">$564.89</span>
-        </div>
-    </div>
-</section>
-
-        
+        <h1>Maple Market Insights</h1> 
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="stocks.html">Stock Price Display</a></li>
+                <li><a href="historical.html">Historical Prices</a></li>
+                <li><a href="user.html">User Alerts</a></li>
+                <li id="favorite-stocks" style="display: none;"><a href="favourite.html">Favourite Stocks</a></li>
+                <li><input type="text" id="stockSymbol" placeholder="Enter stock symbol (e.g., MSFT)">
+                <button id="searchBtn">Search</button></li>
+                <li id="login-button" onclick="login.html"><button class="menu-item">Login</button> </li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
         <section class="content">
