@@ -11,6 +11,7 @@ body {
     color: #333;
 }
 
+/* Header styles */
 header {
     display: flex;
     justify-content: space-between;
@@ -333,3 +334,4 @@ footer a:hover {
         font-size: 1rem;
     }
 }
+
