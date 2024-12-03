@@ -1,0 +1,22 @@
+#favorite-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.favorite-item {
+    background-color: #f9f9f9;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.favorite-item h4 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.favorite-item p {
+    margin: 5px 0;
+    font-size: 1em;
+}
