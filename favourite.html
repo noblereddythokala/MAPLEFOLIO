@@ -8,7 +8,10 @@
     <link rel="icon" href="/images/MAPLEFOLIO-removebg-preview.png" type="image/x-icon">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="favourite.css"> 
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 <body>
     <header>
@@ -28,7 +31,9 @@
                 <li><a href="user.html">User Alerts</a></li>
                 <li><a href="favourite.html" class="active">Favourite Stocks</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
-            </ul>
+                <li><a href="#" id="logout-button" style="display: none;">Logout</a></li>
+                
+                 </ul>
         </nav>
     </header>
 
@@ -41,11 +46,7 @@
                 <button type="submit">Add to Favourites</button>
             </form>
             <h3>Your Favourites:</h3>
-            <ul id="favorite-list">
-                <li>AAPL</li>
-                <li>TSLA</li>
-                <li>GOOGL</li>
-            </ul>
+            <ul id="favorite-list"></ul>
         </section>
     </main>
 
