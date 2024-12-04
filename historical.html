@@ -12,10 +12,14 @@
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="images/Maple Insights.webp" alt="Maplefolio Logo"> 
-        </div>
-        <h1>Maple Market Insights</h1>
+        <div class="header-left">
+            <div class="logo">
+                <img src="images/Maple Insights.webp" alt="Maplefolio Logo">
+            </div>
+            <div class="website-name">
+                <h3>MAPLE MARKET INSIGHTS</h3>
+            </div>
+          </div>
         <nav>
             <ul class="menu">
                 <li><a href="index.html">Home</a></li>
@@ -23,8 +27,11 @@
                 <li><a href="market.html" class="active">Live News</a></li>
                 <li><a href="user.html">User Alerts</a></li>
                 <li id="favorite-stocks" style="display: none;"><a href="favourite.html">Favourite Stocks</a></li>
-             
-                <li id="login-button" onclick="login.html"><button class="menu-item">Login</button> </li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li id="login-button">
+                    <a href="login.html" onclick="location.href='login.html'">Login</a>
+                </li>
+                
             </ul>
         </nav>
     </header>

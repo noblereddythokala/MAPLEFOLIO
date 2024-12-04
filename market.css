@@ -48,12 +48,6 @@
     display: block;
 }
 
-#output li em {
-    color: #8d99ae;
-    font-style: italic;
-    font-size: 14px;
-}
-
 #output li a {
     display: inline-block;
     margin-top: 12px;
@@ -66,13 +60,38 @@
 
 #output li a:hover {
     color: #d90429;
-   
+}
+.dropdown-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 600px;
+    margin: 20px auto;
 }
 
-#output li p {
+select {
+    width: 200px;
+    padding: 5px 10px;
     font-size: 16px;
-    color: #4a4e69;
-    line-height: 1.5;
-    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
+
+select:hover {
+    border-color: #ff7f7f;
+}
+
+select:focus {
+    border-color: #ff4d4d;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+
 

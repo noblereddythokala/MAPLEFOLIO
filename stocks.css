@@ -23,7 +23,17 @@ nav ul li a:hover {
 }
 
 .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
+}
+
+#output {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
 }
 
 form {
