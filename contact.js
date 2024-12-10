@@ -1,53 +1,51 @@
-// Function to handle form submission
-document.getElementById("contact-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent form from submitting normally
+document.addEventListener("DOMContentLoaded", function () {
+    // Initialize Email.js with your public key
+    emailjs.init("sfxsjDJOAqWYhZSh2"); // Replace with your actual Email.js public key
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+    const contactForm = document.getElementById("contact-form");
+    const successMessage = document.getElementById("success-message");
 
-    // Simple validation
-    if (!name || !email || !message) {
-        alert("All fields are required.");
-        return;
-    }
+    if (contactForm) {
+        contactForm.onsubmit = function (e) {
+            e.preventDefault(); // Prevent default form submission
 
-    // Send form data using AJAX
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", "contact.php", true);  // Make sure this matches your server-side PHP script
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            // Parse the JSON response from PHP
-            const response = JSON.parse(xhr.responseText);
-            
-            if (response.status === 'success') {
-                // Display the success message
-                const successMessageDiv = document.createElement('div');
-                successMessageDiv.textContent = response.message;  // "Your message has been sent successfully."
-                successMessageDiv.style.backgroundColor = "#d4edda";
-                successMessageDiv.style.padding = "10px";
-                successMessageDiv.style.borderRadius = "5px";
-                successMessageDiv.style.color = "#155724";
-                successMessageDiv.style.marginBottom = "15px";
-                successMessageDiv.style.textAlign = "center";
-                document.querySelector(".contact-section").prepend(successMessageDiv);  // Add it to the top of the contact form section
-                
-                // Reset the form after showing success message
-                document.getElementById("contact-form").reset();
+            // Dynamically get the form data
+            const formData = new FormData(contactForm);
+            const name = formData.get("name").trim();
+            const email = formData.get("email").trim();
+            const message = formData.get("message").trim();
 
-                // Hide the success message after 3 seconds
-                setTimeout(function() {
-                    successMessageDiv.style.display = "none";
-                }, 3000);
+            if (name && email && message) {
+                // Send the email with the contact details
+                sendContactEmail(name, email, message);
             } else {
-                // Handle error response from the server
-                alert(response.message);  // Show the error message returned by PHP
+                alert("Please fill out all fields before submitting.");
             }
-        }
-    };
-    
-    // Send the form data to the server
-    xhr.send("name=" + encodeURIComponent(name) + "&email=" + encodeURIComponent(email) + "&message=" + encodeURIComponent(message));
+        };
+    } else {
+        console.error("Contact form not found in the DOM.");
+    }
 });
+
+// Function to send the email using EmailJS
+function sendContactEmail(name, email, message) {
+    const emailParams = {
+        email: email,       // Recipient's email (user's email)
+        name: name,         // Recipient's name (user's name)
+        message: message    // Message content
+    };
+
+    // Send the email using the service and template IDs
+    emailjs.send('service_9e8lcqo', 'template_b92jt9k', emailParams)
+        .then(function (response) {
+            console.log('Contact email sent successfully!', response.status, response.text);
+            // Show success message
+            const successMessage = document.getElementById("success-message");
+            successMessage.style.display = "block";
+            successMessage.textContent = "Message sent successfully!";
+        })
+        .catch(function (error) {
+            console.error('Error sending contact email:', error);
+            alert("Failed to send message. Please try again later.");
+        });
+}

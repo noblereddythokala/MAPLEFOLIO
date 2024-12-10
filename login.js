@@ -27,7 +27,7 @@ auth.signInWithEmailAndPassword(email, password)
       window.location.href = 'dashboard.html';
     } else {
       alert('User data not found!');
-    }
+    }  
   })
   .catch(error => alert(error.message));
 }
