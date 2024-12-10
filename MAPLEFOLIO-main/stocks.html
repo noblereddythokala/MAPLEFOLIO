@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View real-time stock prices on Maplefolio.">
+    <title>Maplefolio - Stock Price Display</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="stocks.css"> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/Maple Insights.webp" alt="Maplefolio Logo"> 
+        </div>
+        <h1>Maple Market Insights</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="stocks.html" class="active">Stock Price Display</a></li>
+                <li><a href="market.html">Live News</a></li><li>
+                <li><a href="user.html">User Alerts</a></li>
+                <li id="favorite-stocks" style="display: none;"><a href="favourite.html">Favourite Stocks</a></li>
+                
+                <li><a href="login.html" onclick="location.href='login.html'">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form id="historical-form">
+            <input type="text" id="stock-symbol" placeholder="Enter stock symbol" required>
+            <select id="data-type">
+                <option value="intraday">Intraday (5 min)</option>
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+            </select>
+            <button type="submit">Fetch Data</button>
+        </form>
+        
+        
+        <div id="date-filter" style="display: none;">
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date">
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date">
+            <button id="filter-data">Filter Data</button>
+        </div>
+        
+        <canvas id="historicalChart"></canvas>
+        <div id="output"></div>
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Maplefolio. All rights reserved.</p>
+        <p>
+            <a href="https://github.com/noblereddythokala/MAPLEFOLIO" target="_blank">GitHub Repository</a>
+        </p>
+    </footer>
+     <!-- This is  core Firebase JS SDK it is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+ <!-- for more use this link  https://firebase.google.com/docs/web/setup#available-libraries -->
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+ <script type = 'module'>import{ getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";</script> 
+
+ <!-- we created this to use intialize firebase -->
+ <script src ="firebase_init.js"></script>  
+ <script src="login_check.js" type="module"></script>
+    <script src="stocks.js"></script> 
+</body>
+</html>

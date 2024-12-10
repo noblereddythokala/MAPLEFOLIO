@@ -1,0 +1,35 @@
+Project name : maplefolio 
+team members : noble  ,shiva sai, nithish, sai
+requiremts and goals :
+
+    1.	Content for the Website
+     Create a stock market web application featuring real-time prices from Alpha Vantage/Yahoo finance APIs, historical charts with javascript and basic predictions using moving averages. Users can search stocks, set alerts, and save favorites. The user-friendly interface ensures easy navigation, complemented by a news feed to keep users informed about market events.
+    2. CSS Framework
+      •	Framework Choice: Bootstrap
+      •	Bootstrap provides a responsive and mobile-friendly grid system, pre-styled components, and utilities that simplify design.
+
+    3. List of APIs:
+     •	Alpha vantage
+     •	Yahoo Finance
+
+    4. User Interface for the Home Page
+     •   Header
+     •	Logo
+     •	Navigation Bar:
+      1.	Links: Home, Favourites, Alerts, News, About
+      2.	Search Bar
+
+         Main Content Section
+             1.	Stock Price Display
+             2.	Historical Price 
+             3.	Basic Stock Predictions
+             4.	Favourite Stocks List
+             5.	User Alerts
+             6.	News Feed
+
+         Footer
+             •	Links to Privacy Policy, Terms of Service, and Contact Us.
+             •	Social Media Icons: Links to your app’s social media pages.
+             •	Copyright Information.
+
+

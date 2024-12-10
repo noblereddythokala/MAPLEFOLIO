@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your favourite stocks on Maplefolio.">
+    <title>Maplefolio - Favourite Stocks</title>
+    <link rel="icon" href="/images/MAPLEFOLIO-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="favourite.css"> 
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/Maple Insights.webp" alt="Maplefolio Logo"> 
+        </div>
+        <h1>Maple Market Insights</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="stocks.html">Stock Price Display</a></li>
+                <li><a href="market.html">Live News</a></li>
+                <li><a href="user.html">User Alerts</a></li>
+                <li><a href="favourite.html" class="active">Favourite Stocks</a></li>
+                
+                
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="favourites-section">
+            <h2>Manage Your Favourite Stocks</h2>
+            <form id="add-favorite-form">
+                <label for="favorite-stock">Add Stock:</label>
+                <input type="text" id="favorite-stock" name="add-stock" placeholder="e.g., AMZN">
+                <button type="submit">Add to Favourites</button>
+            </form>
+            <h3>Your Favourites:</h3>
+            <ul id="favorite-list">
+                <li>AAPL</li>
+                <li>TSLA</li>
+                <li>GOOGL</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Maplefolio. All rights reserved.</p>
+        <p>
+            <a href="https://github.com/noblereddythokala/MAPLEFOLIO" target="_blank">GitHub Repository</a>
+        </p>
+    </footer>
+      <!-- This is  core Firebase JS SDK it is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+ <!-- for more use this link  https://firebase.google.com/docs/web/setup#available-libraries -->
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+ 
+ <!-- we created this to use intialize firebase -->
+    <script src="favourite.js" type="module"></script> 
+</body>
+</html>

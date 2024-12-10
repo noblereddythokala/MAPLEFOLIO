@@ -39,10 +39,6 @@ function sendRegistrationEmail(email, username) {
     });
 }
 
-
-
-  
-
   // Register user in Firebase Auth and Database
   auth.createUserWithEmailAndPassword(email, password)
     .then(() => {

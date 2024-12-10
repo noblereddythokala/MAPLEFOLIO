@@ -8,9 +8,11 @@
     <link rel="icon" href="/images/MAPLEFOLIO-removebg-preview.png" type="image/x-icon">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="contact.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="contact.js"></script>
 </head>
 <body>
     <header>
@@ -21,21 +23,28 @@
             <div class="website-name">
                 <h3>MAPLE MARKET INSIGHTS</h3>
             </div>
-        </div>
-    
-       
-        <nav>
-            <ul class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="stocks.html">Stock Price Display</a></li>
-                <li><a href="market.html" class="active">Live News</a></li>
-                <li><a href="user.html">User Alerts</a></li>
-                <li id="favorite-stocks" style="display: none;"><a href="favourite.html">Favourite Stocks</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="login.html" onclick="location.href='login.html'">Login</a></li>
-                
-            </ul>
-        </nav>
+          </div>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="stocks.html">Stock Price Display</a></li>
+            <li><a href="market.html">Live News</a></li>
+            <li><a href="user.html">User Alerts</a></li>
+            <li id="favorite-stocks" style="display: none;"><a href="favourite.html">Favourite Stocks</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            
+            
+            
+            <li id="login-button">
+                <a href="login.html" onclick="location.href='login.html'">Login</a>
+            </li>
+            <li><a href="#" id="logout-button" style="display: none;">Logout</a></li>
+            
+            
+        </ul>
+    </nav>
     </header>
     
     <main>
@@ -73,77 +82,53 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Maplefolio. All rights reserved.</p>
-        <p>
-            <a href="https://github.com/noblereddythokala/MAPLEFOLIO" target="_blank">GitHub Repository</a>
-        </p>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: support@maplefolio.com</p>
+                <p>Phone: +1 (234) 567-890</p>
+                <p>Address: 123 Main St, City, Country</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Donate Us</a></li>
+                    <li><a href="#">Volunteer</a></li>
+                    <li><a href="#">Report</a></li>
+                    <li><a href="#">Licenses</a></li>
+                    <li><a href="#">Agreements</a></li>
+                </ul>
+            </div>
+            <div id="success-message" style="display: none; background-color: #d4edda; padding: 10px; border-radius: 5px; color: #155724;">
+                Message sent successfully!
+            </div>
+            
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="https://github.com/noblereddythokala/MAPLEFOLIO" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <!-- JavaScript to Load XML and Handle Form Submission -->
-    <script>
-        // Function to load XML content
-        function loadContactInfo() {
-            const xhr = new XMLHttpRequest();
-            xhr.open("GET", "contact_info.xml", true);
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    const xmlDoc = xhr.responseXML;
-                    const companyName = xmlDoc.getElementsByTagName("name")[0].childNodes[0].nodeValue;
-                    const companyAddress = xmlDoc.getElementsByTagName("address")[0].childNodes[0].nodeValue;
-                    const companyPhone = xmlDoc.getElementsByTagName("phone")[0].childNodes[0].nodeValue;
-                    const companyEmail = xmlDoc.getElementsByTagName("email")[0].childNodes[0].nodeValue;
+    
 
-                    const facebookLink = xmlDoc.getElementsByTagName("facebook")[0].childNodes[0].nodeValue;
-                    const twitterLink = xmlDoc.getElementsByTagName("twitter")[0].childNodes[0].nodeValue;
-                    const linkedinLink = xmlDoc.getElementsByTagName("linkedin")[0].childNodes[0].nodeValue;
+     <!-- This is  core Firebase JS SDK it is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 
-                    document.getElementById("contact-info").innerHTML = `
-                        <h3>Contact Information</h3>
-                        <p><strong>Company:</strong> ${companyName}</p>
-                        <p><strong>Address:</strong> ${companyAddress}</p>
-                        <p><strong>Phone:</strong> ${companyPhone}</p>
-                        <p><strong>Email:</strong> <a href="mailto:${companyEmail}">${companyEmail}</a></p>
-                        <p><strong>Follow us:</strong></p>
-                        <ul>
-                            <li><a href="${facebookLink}" target="_blank">Facebook</a></li>
-                            <li><a href="${twitterLink}" target="_blank">Twitter</a></li>
-                            <li><a href="${linkedinLink}" target="_blank">LinkedIn</a></li>
-                        </ul>
-                    `;
-                }
-            };
-            xhr.send();
-        }
+ <!-- for more use this link  https://firebase.google.com/docs/web/setup#available-libraries -->
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+ <script type = 'module'>import{ getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";</script> 
 
-        // Function to handle form submission
-        document.getElementById("contact-form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent form from submitting normally
-
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const message = document.getElementById("message").value;
-
-            // Simple validation
-            if (!name || !email || !message) {
-                alert("All fields are required.");
-                return;
-            }
-
-            // Send form data using AJAX
-            const xhr = new XMLHttpRequest();
-            xhr.open("POST", "submit_contact.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    alert("Your message has been sent successfully.");
-                    document.getElementById("contact-form").reset(); // Reset the form
-                }
-            };
-            xhr.send(name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&message=${encodeURIComponent(message)});
-        });
-
-        // Load contact info when the page loads
-        window.onload = loadContactInfo;
-    </script>
+ <!-- we created this to use intialize firebase -->
+ <script src ="firebase_init.js"></script>  
+ <script src="login_check.js" type="module"></script> 
 </body>
 </html>

@@ -1,33 +1,53 @@
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Check if all required fields are present
-    if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $message = $_POST['message'];
+// Function to handle form submission
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form from submitting normally
 
-        // Basic validation
-        if (empty($name) || empty($email) || empty($message)) {
-            echo json_encode(['status' => 'error', 'message' => 'All fields are required.']);
-            exit;
-        }
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
 
-        // Email settings (Change these as needed)
-        $to = "support@maplefolio.com";  // Replace with your email address
-        $subject = "New Contact Form Submission";
-        $body = "Name: $name\nEmail: $email\nMessage:\n$message";
-        $headers = "From: $email";
-
-        // Send the email
-        if (mail($to, $subject, $body, $headers)) {
-            echo json_encode(['status' => 'success', 'message' => 'Your message has been sent successfully.']);
-        } else {
-            echo json_encode(['status' => 'error', 'message' => 'There was an issue sending your message. Please try again later.']);
-        }
-    } else {
-        echo json_encode(['status' => 'error', 'message' => 'Invalid request.']);
+    // Simple validation
+    if (!name || !email || !message) {
+        alert("All fields are required.");
+        return;
     }
-} else {
-    echo json_encode(['status' => 'error', 'message' => 'Invalid request method.']);
-}
-?>
+
+    // Send form data using AJAX
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "contact.php", true);  // Make sure this matches your server-side PHP script
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Parse the JSON response from PHP
+            const response = JSON.parse(xhr.responseText);
+            
+            if (response.status === 'success') {
+                // Display the success message
+                const successMessageDiv = document.createElement('div');
+                successMessageDiv.textContent = response.message;  // "Your message has been sent successfully."
+                successMessageDiv.style.backgroundColor = "#d4edda";
+                successMessageDiv.style.padding = "10px";
+                successMessageDiv.style.borderRadius = "5px";
+                successMessageDiv.style.color = "#155724";
+                successMessageDiv.style.marginBottom = "15px";
+                successMessageDiv.style.textAlign = "center";
+                document.querySelector(".contact-section").prepend(successMessageDiv);  // Add it to the top of the contact form section
+                
+                // Reset the form after showing success message
+                document.getElementById("contact-form").reset();
+
+                // Hide the success message after 3 seconds
+                setTimeout(function() {
+                    successMessageDiv.style.display = "none";
+                }, 3000);
+            } else {
+                // Handle error response from the server
+                alert(response.message);  // Show the error message returned by PHP
+            }
+        }
+    };
+    
+    // Send the form data to the server
+    xhr.send("name=" + encodeURIComponent(name) + "&email=" + encodeURIComponent(email) + "&message=" + encodeURIComponent(message));
+});
